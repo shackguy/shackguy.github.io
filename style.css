@@ -1,3 +1,27 @@
+/* Theme variables */
+:root {
+  --bg: #f4f4f4;
+  --text: #333;
+  --header-bg: #333;
+  --header-text: #fff;
+  --card-bg: #fff;
+  --footer-text: #777;
+  --link: #ffffff;
+}
+
+/* Automatic dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121212;
+    --text: #e0e0e0;
+    --header-bg: #1e1e1e;
+    --header-text: #ffffff;
+    --card-bg: #222222;
+    --footer-text: #aaaaaa;
+    --link: #ffffff;
+  }
+}
+
 /* Reset some default browser styles */
 * {
   margin: 0;
@@ -8,32 +32,38 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: var(--bg);
+  color: var(--text);
   padding: 20px;
+
+  transition: background-color 0.2s, color 0.2s;
 }
 
 header {
-  background-color: #333;
-  color: #fff;
+  background-color: var(--header-bg);
+  color: var(--header-text);
   padding: 20px;
+
+  transition: background-color 0.2s;
 }
 
 nav a {
-  color: white;
+  color: var(--link);
   text-decoration: none;
   margin-right: 15px;
 }
 
 main {
-  background-color: white;
+  background-color: var(--card-bg);
   padding: 20px;
   margin-top: 20px;
   border-radius: 5px;
+
+  transition: background-color 0.2s;
 }
 
 footer {
   text-align: center;
   margin-top: 30px;
-  color: #777;
+  color: var(--footer-text);
 }
