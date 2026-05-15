@@ -1,32 +1,39 @@
-const button = document.getElementById("theme-toggle");
+var button = document.getElementById("theme-toggle");
 
-function updateIcon() {
-    button.textContent =
-        document.documentElement.getAttribute("data-theme") === "dark"
-        ? "☀"
-        : "☾";
+function setTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+
+  try {
+    localStorage.setItem("theme", theme);
+  } catch (e) {
+    /* ignore if localStorage is unsupported */
+  }
+
+  if (theme === "dark") {
+    button.innerHTML = "☀";
+  } else {
+    button.innerHTML = "☾";
+  }
 }
 
-updateIcon();
+var savedTheme = null;
 
-button.addEventListener("click", () => {
-    const current =
-        document.documentElement.getAttribute("data-theme");
+try {
+  savedTheme = localStorage.getItem("theme");
+} catch (e) {
+  savedTheme = null;
+}
 
-    const newTheme =
-        current === "dark"
-        ? "light"
-        : "dark";
+if (savedTheme === "dark" || savedTheme === "light") {
+  setTheme(savedTheme);
+}
 
-    document.documentElement.setAttribute(
-        "data-theme",
-        newTheme
-    );
+button.onclick = function () {
+  var current = document.documentElement.getAttribute("data-theme");
 
-    localStorage.setItem(
-        "theme",
-        newTheme
-    );
-
-    updateIcon();
-});
+  if (current === "dark") {
+    setTheme("light");
+  } else {
+    setTheme("dark");
+  }
+};
