@@ -97,7 +97,3 @@ footer {
   color: #777;
   color: var(--footer-text);
 }
-
-body {
-  background: red !important;
-}
