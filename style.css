@@ -106,3 +106,31 @@ footer {
   color: #777;
   color: var(--footer-text);
 }
+
+header {
+  position: relative;
+}
+
+#theme-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  width: 32px;
+  height: 32px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.15);
+  color: inherit;
+
+  font-size: 18px;
+  cursor: pointer;
+
+  transition: background-color 0.2s;
+}
+
+#theme-toggle:hover {
+  background: rgba(255,255,255,0.3);
+}

@@ -1,14 +1,13 @@
 const button = document.getElementById("theme-toggle");
 
-// Restore saved choice
-const savedTheme = localStorage.getItem("theme");
-
-if (savedTheme) {
-    document.documentElement.setAttribute(
-        "data-theme",
-        savedTheme
-    );
+function updateIcon() {
+    button.textContent =
+        document.documentElement.getAttribute("data-theme") === "dark"
+        ? "☀"
+        : "☾";
 }
+
+updateIcon();
 
 button.addEventListener("click", () => {
     const current =
@@ -28,4 +27,6 @@ button.addEventListener("click", () => {
         "theme",
         newTheme
     );
+
+    updateIcon();
 });
