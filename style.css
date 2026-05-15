@@ -9,16 +9,25 @@
   --link: #ffffff;
 }
 
-/* Automatic dark mode */
+/* manual override */
+[data-theme="dark"] {
+  --bg: #121212;
+  --text: #e0e0e0;
+  --header-bg: #1e1e1e;
+  --header-text: #fff;
+  --card-bg: #222;
+  --footer-text: #aaa;
+}
+
+/* automatic fallback if user never chose */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --bg: #121212;
     --text: #e0e0e0;
     --header-bg: #1e1e1e;
-    --header-text: #ffffff;
-    --card-bg: #222222;
-    --footer-text: #aaaaaa;
-    --link: #ffffff;
+    --header-text: #fff;
+    --card-bg: #222;
+    --footer-text: #aaa;
   }
 }
 
