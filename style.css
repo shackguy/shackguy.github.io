@@ -26,11 +26,13 @@
 * {
   margin: 0;
   padding: 0;
-
-  /* fallback */
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+header, nav, main, section, footer {
+  display: block;
 }
 
 body {
@@ -94,4 +96,8 @@ footer {
 
   color: #777;
   color: var(--footer-text);
+}
+
+body {
+  background: red !important;
 }
